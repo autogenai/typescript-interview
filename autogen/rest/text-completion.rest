@@ -1,0 +1,15 @@
+POST http://localhost:3000/ideate
+content-type: application/json
+
+{
+    "input": "Test Input"
+}
+
+###
+
+POST http://localhost:3000/summarise
+content-type: application/json
+
+{
+    "input": "Test Input"
+}

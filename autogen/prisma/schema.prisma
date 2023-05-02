@@ -1,0 +1,18 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./autogen.db"
+}
+
+model Activity {
+  id      Int      @id @default(autoincrement())
+  model   String
+  action  String
+  time    DateTime @default(now())
+}

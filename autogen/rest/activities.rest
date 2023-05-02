@@ -1,0 +1,2 @@
+GET http://localhost:3000/usage/hopeful-ai?since=2023-03-05
+content-type: application/json

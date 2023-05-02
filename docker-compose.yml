@@ -1,0 +1,22 @@
+version: '3'
+services:
+  hopeful-ai:
+    build:
+      context: ./hopeful-ai
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+      - MIN_RESPONSE_TIME=1000
+      - MAX_RESPONSE_TIME=2000
+      - SUCCESS_RATE=1
+  rapid-ai:
+    build:
+      context: ./rapid-ai
+    ports:
+      - 3002:3002
+    environment:
+      - PORT=3002
+      - MIN_RESPONSE_TIME=500
+      - MAX_RESPONSE_TIME=2000
+      - SUCCESS_RATE=0.95

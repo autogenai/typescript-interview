@@ -1,0 +1,7 @@
+build
+autogen/dist/*
+.vscode
+.idea
+node_modules
+autogen.db
+autogen.db-journal
