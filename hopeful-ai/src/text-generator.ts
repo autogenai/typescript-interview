@@ -2,7 +2,7 @@ const minResponseTime = Number(process.env.MIN_RESPONSE_TIME || "2000");
 const maxResponseTime = Number(process.env.MAX_RESPONSE_TIME || "10000");
 const successRate = Number(process.env.SUCCESS_RATE || "0.7");
 
-const dummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc turpis, " +
+const dummyText = "HOPEFULL_AI_OUTPUT: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nunc turpis, " +
 "suscipit at interdum id, mollis nec libero. Donec congue turpis vel metus convallis vulputate. " +
 "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. " +
 "Mauris aliquam euismod magna, sed tempor ipsum elementum id. Curabitur egestas lorem ligula, " +

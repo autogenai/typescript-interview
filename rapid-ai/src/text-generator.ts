@@ -2,7 +2,7 @@ const minResponseTime = Number(process.env.MIN_RESPONSE_TIME || "1000");
 const maxResponseTime = Number(process.env.MAX_RESPONSE_TIME || "3000");
 const successRate = Number(process.env.SUCCESS_RATE || "0.9");
 
-const dummyText = "Curabitur nec consequat ligula. Mauris ultricies et nisi ut pulvinar." +
+const dummyText = "RAPID_AI_OUTPUT: Curabitur nec consequat ligula. Mauris ultricies et nisi ut pulvinar." +
 "Duis ipsum ipsum, lobortis eu mauris nec, mollis luctus nunc. Suspendisse sit amet sollicitudin mauris. " +
 "Morbi ultrices metus non ante placerat eleifend.";
 
