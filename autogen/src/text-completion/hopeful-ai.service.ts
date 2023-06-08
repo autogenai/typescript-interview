@@ -14,7 +14,11 @@ interface HopefulAiResponse {
 export class HopefulAiService {
     constructor(private readonly activityService: ActivityService) {}
 
-    public async makePostRequest(request: HopefulAiRequest, action: string): Promise<HopefulAiResponse> {
+    public async makePostRequest(prompt: string, action: string): Promise<HopefulAiResponse> {
+        const request: HopefulAiRequest = {
+            prompt: prompt,
+            temperature: 0.5,
+        };
         await this.activityService.recordActivity(action, "hopeful-ai");
         const result = await fetch("http://localhost:3001/", {
             method: "POST",

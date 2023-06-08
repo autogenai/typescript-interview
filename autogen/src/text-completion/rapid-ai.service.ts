@@ -15,7 +15,12 @@ interface RapidAiResponse {
 export class RapidAiService {
     constructor(private readonly activityService: ActivityService) {}
 
-    public async makePostRequest(request: RapidAiRequest, action: string): Promise<RapidAiResponse> {
+    public async makePostRequest(prompt: string, action: string): Promise<RapidAiResponse> {
+        const request: RapidAiRequest = {
+            question: prompt,
+            creativity: 0.5,
+            answerLength: 100,
+        };
         await this.activityService.recordActivity(action, "rapid-ai");
         const result = await fetch("http://localhost:3002/", {
             method: "POST",

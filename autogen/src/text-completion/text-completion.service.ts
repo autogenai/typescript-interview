@@ -15,13 +15,7 @@ export class TextCompletionService {
 
     public async summarise(request: CompletionRequest): Promise<CompletionResponse> {
         const prompt = `Summarise the following text: ${request.input}`;
-        const response = await this.hopefulAiService.makePostRequest(
-            {
-                prompt,
-                temperature: 0.2,
-            },
-            "summarise",
-        );
+        const response = await this.hopefulAiService.makePostRequest(prompt, "summarise");
 
         return { choices: [response.text] };
     }
@@ -30,14 +24,7 @@ export class TextCompletionService {
         const choices: string[] = [];
 
         for (const prompt of ideatePrompts) {
-            const response = await this.hopefulAiService.makePostRequest(
-                {
-                    prompt: `${prompt} ${request.input}`,
-                    temperature: 0.8,
-                },
-                "ideate",
-            );
-
+            const response = await this.hopefulAiService.makePostRequest(`${prompt} ${request.input}`, "ideate");
             choices.push(response.text);
         }
 
