@@ -22,7 +22,7 @@ app.post('/', async (req: Request, res: Response) => {
       return;
     }
 
-    const answer = await generateText();
+    const answer = await generateText(parseResult.data.question);
     res.json({ answer, tokens: answer.split("").length });
   }
   catch (e) {

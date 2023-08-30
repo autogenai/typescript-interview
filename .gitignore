@@ -1,5 +1,5 @@
 build
-autogen/dist/*
+dist
 .vscode
 .idea
 node_modules

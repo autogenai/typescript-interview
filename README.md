@@ -1,11 +1,12 @@
 # Autogen Typescript Interview
 This project is a really simple version of our production tech stack.
 It has:
-- autogen: a NestJS API & SQLite database (this is what we'll be working on)
-- hopeful-ai & rapid-ai: a couple of node + express servers that act as fake external APIs
+- frontend: a React SPA
+- backend: a NestJS API & SQLite database
+- stub-third-parties: a couple of node + express servers that act as fake external APIs
 
 You should be able to spin up those fake external APIs using docker-compose.
-And then the NestJS API can be run directly in node.
+And then the NestJS API & the React SPA can be run directly in node.
 
 ## Pre-requisites
 - docker (and docker-compose)
@@ -20,15 +21,17 @@ docker-compose up
 
 This will spin up both external servers, on ports 3001 and 3002.
 
-### NestJS API
-From inside the `autogen` directory, run:
+### Nest & React
+From the root of this repo, run the `setup.sh` script.
+This will install dependencies and setup the SQLite database.
+
+To run the the nest app and the react app respecitively, run
 ```bash
-npm install
-npm run migrate
-npm run start:dev
+npm run dev --prefix ./backend
+npm run dev --prefix ./frontend
 ```
 
-This will spin up the NestJS API on port 3000, and a SQLite database.
+You should now see the react app running on port 3001, and the nest app running on port 3000.
 
 ## Checking it works
 Everything should now 'just work'... but just to make sure, you can check the following:

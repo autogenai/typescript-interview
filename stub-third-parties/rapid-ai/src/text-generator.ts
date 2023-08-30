@@ -6,7 +6,7 @@ const dummyText = "RAPID_AI_OUTPUT: Curabitur nec consequat ligula. Mauris ultri
 "Duis ipsum ipsum, lobortis eu mauris nec, mollis luctus nunc. Suspendisse sit amet sollicitudin mauris. " +
 "Morbi ultrices metus non ante placerat eleifend.";
 
-export function generateText(): Promise<string> {
+export function generateText(input: string): Promise<string> {
     return new Promise((resolve, reject) => {
         const responseTime = minResponseTime + Math.random() * (maxResponseTime - minResponseTime);
         setTimeout(() => {
