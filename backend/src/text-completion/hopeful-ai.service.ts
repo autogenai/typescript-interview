@@ -20,7 +20,7 @@ export class HopefulAiService {
             temperature: 0.5,
         };
         await this.activityService.recordActivity(action, "hopeful-ai");
-        const result = await fetch("http://localhost:3001/", {
+        const result = await fetch("http://localhost:3002/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -22,7 +22,7 @@ export class RapidAiService {
             answerLength: 100,
         };
         await this.activityService.recordActivity(action, "rapid-ai");
-        const result = await fetch("http://localhost:3002/", {
+        const result = await fetch("http://localhost:3003/", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

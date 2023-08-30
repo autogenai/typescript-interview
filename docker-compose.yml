@@ -4,11 +4,11 @@ services:
     build:
       context: ./stub-third-parties/hopeful-ai
     ports:
-      - 3003:3003
+      - 3002:3002
     environment:
       - PORT=3002
-      - MIN_RESPONSE_TIME=1000
-      - MAX_RESPONSE_TIME=2000
+      - MIN_RESPONSE_TIME=100
+      - MAX_RESPONSE_TIME=200
       - SUCCESS_RATE=1
   rapid-ai:
     build:
@@ -17,6 +17,6 @@ services:
       - 3003:3003
     environment:
       - PORT=3003
-      - MIN_RESPONSE_TIME=500
-      - MAX_RESPONSE_TIME=2000
-      - SUCCESS_RATE=0.95
+      - MIN_RESPONSE_TIME=50
+      - MAX_RESPONSE_TIME=100
+      - SUCCESS_RATE=1
