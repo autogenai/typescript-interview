@@ -1,11 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { ActivityService } from "src/activity/activity.service";
 
-interface RapidAiRequest {
-    question: string;
-    creativity: number;
-    answerLength: number;
-}
+const minResponseTime = 10;
+const maxResponseTime = 20;
+const successRate = 1;
 
 interface RapidAiResponse {
     answer: string;
@@ -16,24 +14,22 @@ export class RapidAiService {
     constructor(private readonly activityService: ActivityService) {}
 
     public async makePostRequest(prompt: string, action: string): Promise<RapidAiResponse> {
-        const request: RapidAiRequest = {
-            question: prompt,
-            creativity: 0.5,
-            answerLength: 100,
-        };
         await this.activityService.recordActivity(action, "rapid-ai");
-        const result = await fetch("http://localhost:3003/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(request),
+        const answer = await this.generateText(prompt);
+        return { answer };
+    }
+
+    async generateText(input: string): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const responseTime = minResponseTime + Math.random() * (maxResponseTime - minResponseTime);
+            setTimeout(() => {
+                if (Math.random() < successRate) {
+                    const words = input.split(" ");
+                    resolve(words.slice(0, 20).join(" "));
+                } else {
+                    reject("Text generation failed");
+                }
+            }, responseTime);
         });
-
-        if (!result.ok) {
-            throw new Error("Request failed");
-        }
-
-        return await result.json();
     }
 }

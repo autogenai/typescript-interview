@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { SummariseForm } from "./SummariseForm";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <div className="bg-neutral-100 min-h-screen">
             <main className="max-w-[1200px] m-auto pt-4">
